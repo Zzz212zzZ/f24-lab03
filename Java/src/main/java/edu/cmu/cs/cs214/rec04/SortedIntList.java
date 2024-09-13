@@ -7,7 +7,7 @@ public class SortedIntList extends AbstractIntList {
 
     public SortedIntList() {
         super();
-        list = new ArrayList();
+        list = new ArrayList<>();
     }
 
     @Override
