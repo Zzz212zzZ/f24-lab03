@@ -10,8 +10,34 @@ import { SortedIntList } from './hidden/SortedIntListLibrary.js'
  *
  */
 
-class InheritanceSortedIntList {
-  // Write your implementation below with API documentation
+class InheritanceSortedIntList extends SortedIntList {
+  private totalAdded: number
+
+  constructor () {
+    super()
+    this.totalAdded = 0
+  }
+
+  /**
+   * 
+   * @param num  The number to be added to the list
+   * @returns  True if the number was added successfully
+   */
+  add (num: number): boolean {
+    this.totalAdded++
+    return super.add(num)
+  }
+
+  /**
+   * 
+   * @param list The list to be added to the list
+   * @returns  True if the list was added successfully
+   */
+  getTotalAdded (): number {
+    return this.totalAdded
+  }
+
+
 
 }
 

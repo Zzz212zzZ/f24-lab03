@@ -7,9 +7,50 @@
  * @author Nora Shoemaker
  *
  */
-
+import { SortedIntList } from './hidden/SortedIntListLibrary.js'
 class DelegationSortedIntList {
-  // Write your implementation below with API documentatioin
+  private totalAdded: number
+  private list: any
+
+  constructor() {
+    this.list = new SortedIntList()
+    this.totalAdded = 0
+  }
+
+  /**
+   * 
+   * @param num  The number to be added to the list
+   * @returns  True if the number was added successfully
+   */
+  add(num: number): boolean {
+    this.totalAdded++
+    return this.list.add(num)
+  }
+
+  /**
+   * 
+   * @param list The list to be added to the list
+   * @returns  True if the list was added successfully
+   */
+  addAll(list: any): boolean {
+    let success = true
+
+    for (let i = 0; i < list.size(); ++i) {
+      success &&= this.add(list.get(i))
+    }
+
+    return success
+  }
+
+  /**
+   * 
+   * @returns The total number of elements added to the list
+   */
+
+  getTotalAdded(): number {
+    return this.totalAdded
+  }
+
 }
 
 export { DelegationSortedIntList }
